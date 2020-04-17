@@ -84,7 +84,7 @@ Output stream. Pass null to prevent all output.
 
 • **truncate**: _boolean_
 
-Truncate output to fit in terminal (stream.rows).
+Truncate output to fit in terminal (`stream.rows`).
 This option has no effect if line buffer is disabled.
 
 **`remarks`** Useful when displaying more buffered message lines than the stream has rows.

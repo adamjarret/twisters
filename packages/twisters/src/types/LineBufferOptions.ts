@@ -32,7 +32,7 @@ export interface LineBufferOptions {
   handleSigint: boolean;
 
   /**
-   * Truncate output to fit in terminal (stream.rows).
+   * Truncate output to fit in terminal (`stream.rows`).
    * This option has no effect if line buffer is disabled.
    * @remarks Useful when displaying more buffered message lines than the stream has rows.
    * @default true

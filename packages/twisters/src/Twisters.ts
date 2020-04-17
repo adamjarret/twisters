@@ -82,6 +82,11 @@ export class Twisters<Meta = NoMeta> {
 
   /**
    * Add/update a message
+   *
+   * @remarks Message content is not cached by default.
+   * **This means that message text must be provided to subsequent put calls,
+   * even if the text is unchanged.**
+   * See: {@Link https://github.com/adamjarret/twisters/blob/master/packages/examples-js/bin/custom-cache.js | custom-cache.js example} to update messages using only changed attributes.
    */
   public put(name: string, messageOpt?: Partial<Message<Meta>>): Message<Meta> {
     const { messageDefaults } = this.options;
