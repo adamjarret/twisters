@@ -1,0 +1,14 @@
+{
+  "theme": "./docs-theme",
+  "mode": "file",
+  "logger": "console",
+  "module": "CommonJS",
+  "namedAnchors": true,
+  "experimentalDecorators": false,
+  "hideBreadcrumbs": true,
+  "hideSources": true,
+  "excludeProtected": true,
+  "excludePrivate": true,
+  "name": "API",
+  "readme": "none"
+}

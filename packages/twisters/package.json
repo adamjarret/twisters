@@ -1,0 +1,47 @@
+{
+  "name": "twisters",
+  "version": "1.0.0",
+  "description": "Display multiple simultaneous animated spinners in terminal applications",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "author": "Adam Jarret <adam@atj.me> (https://atj.me)",
+  "license": "MIT",
+  "homepage": "https://adamjarret.github.io/twisters/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamjarret/twisters.git"
+  },
+  "keywords": [
+    "cli",
+    "spinner",
+    "spinners",
+    "loader",
+    "loading",
+    "animate",
+    "animated",
+    "multiple",
+    "parallel",
+    "simultaneous",
+    "terminal",
+    "spinnies",
+    "ora",
+    "listr"
+  ],
+  "scripts": {
+    "ncu": "ncu --packageFile package.json",
+    "pak": "npm pack"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "@types/wrap-ansi": "^3.0.0"
+  },
+  "dependencies": {
+    "cli-cursor": "^3.1.0",
+    "mute-stream": "^0.0.8",
+    "string-width": "^4.2.0",
+    "wrap-ansi": "^6.2.0"
+  }
+}

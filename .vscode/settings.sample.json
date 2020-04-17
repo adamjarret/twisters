@@ -1,0 +1,6 @@
+{
+  "eslint.packageManager": "yarn",
+  "prettier.ignorePath": ".eslintignore",
+  "prettier.packageManager": "yarn",
+  "debug.node.autoAttach": "on"
+}

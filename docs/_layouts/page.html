@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+<nav>
+  <a href="{{ site.baseurl }}/">Twisters</a>
+  {% if page.title != 'API' %} / <a href="{{ site.baseurl }}/api/">API</a>{% endif %}
+</nav>
+
+{{ content }}

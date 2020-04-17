@@ -1,0 +1,8 @@
+.*/
+node_modules/
+lib/
+tmp/
+packages/examples-ts/bin/
+docs/_layouts
+docs/_site
+docs/vendor

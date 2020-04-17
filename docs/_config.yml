@@ -1,0 +1,24 @@
+lsi: false
+safe: true
+incremental: false
+highlighter: rouge
+theme: jekyll-theme-primer
+gist:
+  noscript: false
+
+# Use GitHub Flavored Markdown (NOT kramdown)
+#   otherwise types with '|' will be rendered as tables
+markdown: GFM
+
+#
+# Site settings
+
+title: Twisters
+
+description: Display multiple simultaneous animated spinners in node terminal applications
+
+repository: adamjarret/twisters
+
+baseurl: "/twisters" 
+
+url: "https://adamjarret.github.io" 

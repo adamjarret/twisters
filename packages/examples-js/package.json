@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "twisters-examples-js",
+  "version": "1.0.0",
+  "author": "Adam Jarret <adam@atj.me> (https://atj.me)",
+  "license": "MIT",
+  "homepage": "https://github.com/adamjarret/twisters/tree/master/packages/examples-js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamjarret/twisters.git"
+  },
+  "scripts": {
+    "ncu": "ncu --packageFile package.json"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "colorette": "^1.1.0",
+    "kleur": "^3.0.3",
+    "kuler": "^2.0.0",
+    "twisters": "^1.0.0"
+  }
+}
