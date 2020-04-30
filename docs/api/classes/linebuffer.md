@@ -16,7 +16,7 @@
 
 ### Properties
 
-- [isDisabled](linebuffer.md#isdisabled)
+- [isDisabled](linebuffer.md#readonly-isdisabled)
 - [lineCount](linebuffer.md#linecount)
 - [options](linebuffer.md#options)
 
@@ -44,11 +44,11 @@
 
 ## Properties
 
-### <a id="isdisabled" name="isdisabled"></a> isDisabled
+### <a id="readonly-isdisabled" name="readonly-isdisabled"></a> `Readonly` isDisabled
 
 • **isDisabled**: _boolean_
 
-_Implementation of [TwistersBuffer](../interfaces/twistersbuffer.md).[isDisabled](../interfaces/twistersbuffer.md#isdisabled)_
+_Implementation of [TwistersBuffer](../interfaces/twistersbuffer.md).[isDisabled](../interfaces/twistersbuffer.md#readonly-isdisabled)_
 
 ---
 

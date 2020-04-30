@@ -12,7 +12,7 @@
 
 ### Properties
 
-- [isDisabled](twistersbuffer.md#isdisabled)
+- [isDisabled](twistersbuffer.md#readonly-isdisabled)
 
 ### Methods
 
@@ -24,7 +24,7 @@
 
 ## Properties
 
-### <a id="isdisabled" name="isdisabled"></a> isDisabled
+### <a id="readonly-isdisabled" name="readonly-isdisabled"></a> `Readonly` isDisabled
 
 • **isDisabled**: _boolean_
 
