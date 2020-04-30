@@ -53,8 +53,8 @@ Optional function used to get the display text for the message if provided.
 
 **`example`**
 [render.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render.js),
-[render-non-tty.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-non-tty.js),
-[render-null.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-null.js)
+[render-meta.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-meta.js),
+[render-non-tty.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-non-tty.js)
 
 #### Type declaration:
 

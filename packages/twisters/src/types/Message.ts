@@ -26,8 +26,8 @@ export interface Message<Meta = NoMeta> {
    * @returns text to be written to stream (or null to write nothing)
    * @example
    * {@link https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render.js render.js},
-   * {@link https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-non-tty.js render-non-tty.js},
-   * {@link https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-null.js render-null.js}
+   * {@link https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-meta.js render-meta.js},
+   * {@link https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-non-tty.js render-non-tty.js}
    */
   render: (
     message: Message<Meta>,
