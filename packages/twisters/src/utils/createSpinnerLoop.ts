@@ -28,6 +28,8 @@ export function createSpinnerLoop(spinner: Spinner): SpinnerLoop {
 
     stop();
 
+    callback(frames[currentFrameIndex]);
+
     currentInterval = setInterval(() => {
       const index = currentFrameIndex;
       callback(frames[index]);
