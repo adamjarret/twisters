@@ -8,8 +8,12 @@ twisters.put('z');
 twisters.remove('z');
 
 // Call remove after delay
-twisters.put('b', {
+twisters.put('c', {
   text: 'Running'
+});
+
+twisters.put('b', {
+  text: 'Secondary'
 });
 
 twisters.put('a', {
@@ -22,5 +26,9 @@ setTimeout(() => {
     text: '\tGoodbye!',
     active: false
   });
-  twisters.put('b', { text: 'Done', active: false });
+  twisters.remove('b');
 }, 1000);
+
+setTimeout(() => {
+  twisters.remove('c');
+}, 1500);

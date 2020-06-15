@@ -2,10 +2,17 @@ export type NoMeta = undefined;
 
 export interface Message<Meta = NoMeta> {
   /**
-   * Optional status. Spinner is not displayed if active is false.
+   * Optional status. Spinner is not displayed if false.
    * @default true
    */
   active: boolean;
+
+  /**
+   * Optional removed status.
+   * Message will not be written to stream and any existing message will be removed if true.
+   * @default false
+   */
+  removed: boolean;
 
   /**
    * Optional text to display. If none is provided, the message name passed to put will be used.

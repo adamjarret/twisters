@@ -16,10 +16,11 @@
 
 ### Methods
 
-- [cleanup](twistersbuffer.md#cleanup)
-- [init](twistersbuffer.md#init)
-- [updateBegin](twistersbuffer.md#updatebegin)
-- [updateEnd](twistersbuffer.md#updateend)
+- [cleanup](twistersbuffer.md#optional-cleanup)
+- [init](twistersbuffer.md#optional-init)
+- [teardown](twistersbuffer.md#optional-teardown)
+- [updateBegin](twistersbuffer.md#optional-updatebegin)
+- [updateEnd](twistersbuffer.md#optional-updateend)
 - [write](twistersbuffer.md#write)
 
 ## Properties
@@ -32,7 +33,7 @@ Should be true if related stream is not TTY.
 
 ## Methods
 
-### <a id="cleanup" name="cleanup"></a> cleanup
+### <a id="optional-cleanup" name="optional-cleanup"></a> `Optional` cleanup
 
 ▸ **cleanup**(): _void_
 
@@ -42,7 +43,7 @@ Called after the last update.
 
 ---
 
-### <a id="init" name="init"></a> init
+### <a id="optional-init" name="optional-init"></a> `Optional` init
 
 ▸ **init**(): _void_
 
@@ -52,7 +53,17 @@ Called before the first update.
 
 ---
 
-### <a id="updatebegin" name="updatebegin"></a> updateBegin
+### <a id="optional-teardown" name="optional-teardown"></a> `Optional` teardown
+
+▸ **teardown**(): _void_
+
+Called the first time a removed message is encountered.
+
+**Returns:** _void_
+
+---
+
+### <a id="optional-updatebegin" name="optional-updatebegin"></a> `Optional` updateBegin
 
 ▸ **updateBegin**(): _void_
 
@@ -62,7 +73,7 @@ Called before writing a group of buffered messages.
 
 ---
 
-### <a id="updateend" name="updateend"></a> updateEnd
+### <a id="optional-updateend" name="optional-updateend"></a> `Optional` updateEnd
 
 ▸ **updateEnd**(): _void_
 

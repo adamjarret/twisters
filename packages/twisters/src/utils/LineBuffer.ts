@@ -81,6 +81,16 @@ export class LineBuffer implements TwistersBuffer {
   }
 
   /**
+   * Clear from the cursor to the end of the screen.
+   */
+  public teardown(): void {
+    const { stream } = this.options;
+    if (!stream || this.isDisabled) return;
+
+    readline.clearScreenDown(stream);
+  }
+
+  /**
    * 1. Restore terminal cursor visibility and position.
    * 2. Unmute stdin (if it was previously muted).
    * @remarks If the handleSigint option is false, this method should be called from any custom

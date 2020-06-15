@@ -24,6 +24,7 @@
 
 - [cleanup](linebuffer.md#cleanup)
 - [init](linebuffer.md#init)
+- [teardown](linebuffer.md#teardown)
 - [updateBegin](linebuffer.md#updatebegin)
 - [updateEnd](linebuffer.md#updateend)
 - [write](linebuffer.md#write)
@@ -92,6 +93,18 @@ _Implementation of [TwistersBuffer](../interfaces/twistersbuffer.md)_
 
 1. Hide the terminal cursor.
 2. Mute stdin (if discardStdin option is true).
+
+**Returns:** _void_
+
+---
+
+### <a id="teardown" name="teardown"></a> teardown
+
+▸ **teardown**(): _void_
+
+_Implementation of [TwistersBuffer](../interfaces/twistersbuffer.md)_
+
+Clear from the cursor to the end of the screen.
 
 **Returns:** _void_
 

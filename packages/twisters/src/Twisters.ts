@@ -77,7 +77,9 @@ export class Twisters<Meta = NoMeta> {
    * Returns true if any of the buffered messages are active, otherwise false.
    */
   public hasActiveMessage(): boolean {
-    return Array.from(this.messages.values()).some(({ active }) => active);
+    return Array.from(this.messages.values()).some(
+      ({ active, removed }) => active && !removed
+    );
   }
 
   /**
@@ -93,13 +95,16 @@ export class Twisters<Meta = NoMeta> {
     const message: Message<Meta> = {
       text: name,
       active: true,
+      removed: false,
       render: defaultRender,
       ...messageDefaults,
       ...messageOpt
     };
 
     if (this.lineBuffer.isDisabled) {
-      this.lineBuffer.write(message.render(message, null, name), false);
+      if (!message.removed) {
+        this.lineBuffer.write(message.render(message, null, name), false);
+      }
     } else {
       this.messages.set(name, message);
       this.refresh();
@@ -109,19 +114,21 @@ export class Twisters<Meta = NoMeta> {
   }
 
   /**
+   * Log an inactive message
+   * (convenience function equivalent to `put('text', { active: false })`)
+   */
+  public log(text: string, messageOpt?: Partial<Message<Meta>>): Message<Meta> {
+    return this.put(text, { active: false, ...messageOpt });
+  }
+
+  /**
    * Remove a buffered message by name
+   * (convenience function equivalent to `put('name', { removed: true })`)
+   * @returns The existing message that was removed or undefined if no message was found for the provided key
    */
   public remove(name: string): Message<Meta> | undefined {
-    if (this.lineBuffer.isDisabled) {
-      return;
-    }
-
     const message = this.pick(name);
-
-    this.messages.delete(name);
-
-    this.refresh();
-
+    this.put(name, { removed: true });
     return message;
   }
 
@@ -137,7 +144,7 @@ export class Twisters<Meta = NoMeta> {
 
     this.spinnerLoop.stop();
     this.updateBuffer();
-    this.lineBuffer.cleanup();
+    this.lineBuffer.cleanup && this.lineBuffer.cleanup();
     this.messages.clear();
   }
 
@@ -147,7 +154,7 @@ export class Twisters<Meta = NoMeta> {
     if (flushInactive && !this.hasActiveMessage()) {
       this.flush();
     } else {
-      this.lineBuffer.init();
+      this.lineBuffer.init && this.lineBuffer.init();
       this.spinnerLoop.start((frame) => this.updateBuffer(frame));
     }
   }
@@ -156,11 +163,21 @@ export class Twisters<Meta = NoMeta> {
     const { flushInactive, pinActive } = this.options;
     const pinned = new Map<string, Message<Meta>>();
     let foundActive = false;
+    let foundRemoved = false;
 
-    this.lineBuffer.updateBegin();
+    this.lineBuffer.updateBegin && this.lineBuffer.updateBegin();
 
-    // Write (or pin) each message
+    // Write/pin/remove each message
     this.forEachMessage((message, name) => {
+      if (message.removed) {
+        if (!foundRemoved) {
+          this.lineBuffer.teardown && this.lineBuffer.teardown();
+          foundRemoved = true;
+        }
+        this.messages.delete(name);
+        return;
+      }
+
       if (message.active) {
         if (pinActive) {
           pinned.set(name, message);
@@ -183,7 +200,7 @@ export class Twisters<Meta = NoMeta> {
       this.lineBuffer.write(message.render(message, frame, name), true);
     });
 
-    this.lineBuffer.updateEnd();
+    this.lineBuffer.updateEnd && this.lineBuffer.updateEnd();
   }
 }
 

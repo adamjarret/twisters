@@ -7,22 +7,27 @@ export interface TwistersBuffer {
   /**
    * Called before the first update.
    */
-  init(): void;
+  init?(): void;
 
   /**
    * Called before writing a group of buffered messages.
    */
-  updateBegin(): void;
+  updateBegin?(): void;
 
   /**
    * Called after writing a group of buffered messages.
    */
-  updateEnd(): void;
+  updateEnd?(): void;
+
+  /**
+   * Called the first time a removed message is encountered.
+   */
+  teardown?(): void;
 
   /**
    * Called after the last update.
    */
-  cleanup(): void;
+  cleanup?(): void;
 
   /**
    * Called to write text to the stream.

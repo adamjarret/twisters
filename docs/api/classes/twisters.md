@@ -25,6 +25,7 @@
 - [flush](twisters.md#flush)
 - [forEachMessage](twisters.md#foreachmessage)
 - [hasActiveMessage](twisters.md#hasactivemessage)
+- [log](twisters.md#log)
 - [messageCount](twisters.md#messagecount)
 - [pick](twisters.md#pick)
 - [put](twisters.md#put)
@@ -104,6 +105,24 @@ Returns true if any of the buffered messages are active, otherwise false.
 
 ---
 
+### <a id="log" name="log"></a> log
+
+▸ **log**(`text`: string, `messageOpt?`: Partial‹[Message](../interfaces/message.md)‹Meta››): _[Message](../interfaces/message.md)‹Meta›_
+
+Log an inactive message
+(convenience function equivalent to `put('text', { active: false })`)
+
+**Parameters:**
+
+| Name          | Type                                               |
+| ------------- | -------------------------------------------------- |
+| `text`        | string                                             |
+| `messageOpt?` | Partial‹[Message](../interfaces/message.md)‹Meta›› |
+
+**Returns:** _[Message](../interfaces/message.md)‹Meta›_
+
+---
+
 ### <a id="messagecount" name="messagecount"></a> messageCount
 
 ▸ **messageCount**(): _number_
@@ -157,6 +176,7 @@ See [ custom-cache.js example](https://github.com/adamjarret/twisters/blob/maste
 ▸ **remove**(`name`: string): _[Message](../interfaces/message.md)‹Meta› | undefined_
 
 Remove a buffered message by name
+(convenience function equivalent to `put('name', { removed: true })`)
 
 **Parameters:**
 
@@ -165,3 +185,5 @@ Remove a buffered message by name
 | `name` | string |
 
 **Returns:** _[Message](../interfaces/message.md)‹Meta› | undefined_
+
+The existing message that was removed or undefined if no message was found for the provided key

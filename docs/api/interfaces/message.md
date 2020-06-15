@@ -14,6 +14,7 @@
 
 - [active](message.md#active)
 - [meta](message.md#optional-meta)
+- [removed](message.md#removed)
 - [render](message.md#render)
 - [text](message.md#text)
 
@@ -23,7 +24,7 @@
 
 • **active**: _boolean_
 
-Optional status. Spinner is not displayed if active is false.
+Optional status. Spinner is not displayed if false.
 
 **`default`** true
 
@@ -38,6 +39,17 @@ Optional additional information about this message. Can be used in render functi
 **`default`** undefined
 
 **`example`** [ render-meta.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-meta.js)
+
+---
+
+### <a id="removed" name="removed"></a> removed
+
+• **removed**: _boolean_
+
+Optional removed status.
+Message will not be written to stream and any existing message will be removed if true.
+
+**`default`** false
 
 ---
 
