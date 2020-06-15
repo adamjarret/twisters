@@ -969,6 +969,13 @@
   resolved "https://registry.npmjs.org/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
+"@types/mute-stream@^0.0.0":
+  version "0.0.0"
+  resolved "https://registry.npmjs.org/@types/mute-stream/-/mute-stream-0.0.0.tgz#6f260eb9e190dda380e94d74aa6b9622ce39690a"
+  integrity sha512-pvrDb0sOsIHpEu+f4vfNVcBBQ3pJHid1gPGe/S9CePo2/FgEwDZdtwgocKjDPMbn0WjkqhgIPxe2YI1LqVOQvw==
+  dependencies:
+    "@types/node" "*"
+
 "@types/node@*", "@types/node@>= 8":
   version "13.9.2"
   resolved "https://registry.npmjs.org/@types/node/-/node-13.9.2.tgz#ace1880c03594cc3e80206d96847157d8e7fa349"
