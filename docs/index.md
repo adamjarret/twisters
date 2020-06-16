@@ -123,6 +123,11 @@ See the documentation for details:
 - [TwistersOptions]({{ site.url }}/twisters/api/interfaces/twistersoptions.html)
 - [LineBufferOptions]({{ site.url }}/twisters/api/interfaces/linebufferoptions.html)
 
+## Known Limitations
+
+Care must be taken with messages that contain tab (`\t`) characters.
+See [tabStop]({{ site.url }}/twisters/api/#tabstop) for details.
+
 ## Examples
 
 See the [examples-js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js) and [examples-ts](https://github.com/adamjarret/twisters/tree/master/packages/examples-ts) packages

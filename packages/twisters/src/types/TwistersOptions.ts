@@ -6,6 +6,7 @@ export interface TwistersOptions<Meta = NoMeta> {
   /**
    * Object that implements the `TwistersBuffer` interface.
    * Handles writing lines to a stream.
+   * @default new LineBuffer()
    */
   buffer: TwistersBuffer;
 

@@ -35,6 +35,7 @@
 - [createSpinnerLoop](README.md#createspinnerloop)
 - [createStdinMuter](README.md#createstdinmuter)
 - [defaultRender](README.md#defaultrender)
+- [tabStop](README.md#tabstop)
 - [terminalSupportsUnicode](README.md#terminalsupportsunicode)
 - [wrapText](README.md#wraptext)
 
@@ -145,6 +146,41 @@ The function used to render messages if a render function is not defined by the 
 | --------- | -------------------------------------- |
 | `message` | [Message](interfaces/message.md)‹Meta› |
 | `frame`   | string &#124; null                     |
+
+**Returns:** _string_
+
+---
+
+### <a id="tabstop" name="tabstop"></a> tabStop
+
+▸ **tabStop**(`input`: string[], `columns`: number): _string_
+
+Simulate tab stops using spaces
+
+**`remarks`** `tabStop` can be used instead of actual tabs to sidestep a TTY quirk.
+
+When Twisters overwrites a line of text, it only clears from the end of the new text
+to the end of the terminal line (as opposed to clearing the entire line before
+writing which can cause a flickering effect).
+
+When a tab (`\t`) character is written to the stream, the cursor advances without
+overwriting the text, which can cause garbage text to remain on the line in some cases.
+
+Use `tabStop` to create the illusion of regular tab breaks by inserting the
+required number of spaces (assumes 8 character wide tab stop by default).
+
+**`example`** [util/tab-stop.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/util/tab-stop.js)
+
+```js
+tabStop(line.split('\t'));
+```
+
+**Parameters:**
+
+| Name      | Type     | Default |
+| --------- | -------- | ------- |
+| `input`   | string[] | -       |
+| `columns` | number   | 8       |
 
 **Returns:** _string_
 

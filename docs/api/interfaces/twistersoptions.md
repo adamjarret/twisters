@@ -27,6 +27,8 @@
 Object that implements the `TwistersBuffer` interface.
 Handles writing lines to a stream.
 
+**`default`** new LineBuffer()
+
 ---
 
 ### <a id="flushinactive" name="flushinactive"></a> flushInactive
