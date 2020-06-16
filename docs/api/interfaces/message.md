@@ -1,4 +1,4 @@
-# Interface: Message <**Meta**>
+# Interface: Message ‹**Meta**›
 
 ## Type parameters
 
@@ -38,7 +38,7 @@ Optional additional information about this message. Can be used in render functi
 
 **`default`** undefined
 
-**`example`** [ render-meta.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-meta.js)
+**`example`** [render-meta.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/render-meta.js)
 
 ---
 

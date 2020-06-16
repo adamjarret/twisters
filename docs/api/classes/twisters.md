@@ -1,4 +1,4 @@
-# Class: Twisters <**Meta**>
+# Class: Twisters ‹**Meta**›
 
 ## Type parameters
 
@@ -162,7 +162,7 @@ Add/update a message
 **`remarks`** Message content is not cached by default.
 **This means that message text must be provided to subsequent `put` calls,
 even if the text is unchanged.**
-See [ custom-cache.js example](https://github.com/adamjarret/twisters/blob/master/packages/examples-js/bin/custom-cache.js) to update messages using only changed attributes.
+See [custom-cache.js example](https://github.com/adamjarret/twisters/blob/master/packages/examples-js/bin/custom-cache.js) to update messages using only changed attributes.
 
 **Parameters:**
 

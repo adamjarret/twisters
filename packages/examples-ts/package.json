@@ -13,6 +13,6 @@
     "ncu": "ncu --packageFile package.json"
   },
   "dependencies": {
-    "twisters": "^1.0.0"
+    "twisters": "^1.1.0"
   }
 }

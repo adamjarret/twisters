@@ -13,10 +13,10 @@
     "ncu": "ncu --packageFile package.json"
   },
   "dependencies": {
-    "chalk": "^4.0.0",
-    "colorette": "^1.1.0",
+    "chalk": "^4.1.0",
+    "colorette": "^1.2.0",
     "kleur": "^3.0.3",
     "kuler": "^2.0.0",
-    "twisters": "^1.0.0"
+    "twisters": "^1.1.0"
   }
 }

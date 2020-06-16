@@ -1,4 +1,4 @@
-# Interface: TwistersOptions <**Meta**>
+# Interface: TwistersOptions ‹**Meta**›
 
 ## Type parameters
 
@@ -78,7 +78,7 @@ This option has no effect if line buffer is disabled.
 Spinner definition.
 This option has no effect if line buffer is disabled.
 
-**`remarks`** Compatible with [ cli-spinners](https://github.com/sindresorhus/cli-spinners)
+**`remarks`** Compatible with [cli-spinners](https://github.com/sindresorhus/cli-spinners)
 
 **`example`** [options/spinner.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/options/spinner.js)
 

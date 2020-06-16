@@ -1,6 +1,6 @@
 # Interface: Spinner
 
-Compatible with [ cli-spinners](https://github.com/sindresorhus/cli-spinners)
+Compatible with [cli-spinners](https://github.com/sindresorhus/cli-spinners)
 
 ## Hierarchy
 

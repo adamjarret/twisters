@@ -51,7 +51,7 @@ export function createStdinMuter(): Muter | undefined {
 
     rl.on('SIGINT', () => {
       unmute();
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       process.emit('SIGINT');
     });

@@ -131,7 +131,7 @@ Returns an object capable of muting stdin output.
 
 ### <a id="defaultrender" name="defaultrender"></a> defaultRender
 
-▸ **defaultRender**<**Meta**>(`message`: [Message](interfaces/message.md)‹Meta›, `frame`: string | null): _string_
+▸ **defaultRender**‹**Meta**›(`message`: [Message](interfaces/message.md)‹Meta›, `frame`: string | null): _string_
 
 The function used to render messages if a render function is not defined by the Message object.
 
