@@ -12,12 +12,22 @@
 
 ### Properties
 
+- [buffer](twistersoptions.md#buffer)
 - [flushInactive](twistersoptions.md#flushinactive)
 - [messageDefaults](twistersoptions.md#optional-messagedefaults)
 - [pinActive](twistersoptions.md#pinactive)
 - [spinner](twistersoptions.md#spinner)
 
 ## Properties
+
+### <a id="buffer" name="buffer"></a> buffer
+
+• **buffer**: _[TwistersBuffer](twistersbuffer.md)_
+
+Object that implements the `TwistersBuffer` interface.
+Handles writing lines to a stream.
+
+---
 
 ### <a id="flushinactive" name="flushinactive"></a> flushInactive
 
@@ -28,9 +38,9 @@ This option has no effect if line buffer is disabled.
 
 **`remarks`** If this value is false, you must call twisters.flush() when all operations have completed.
 
-**`default`** true
-
 **`example`** [options/flushInactive.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/options/flushInactive.js)
+
+**`default`** true
 
 ---
 
@@ -70,6 +80,6 @@ This option has no effect if line buffer is disabled.
 
 **`remarks`** Compatible with [ cli-spinners](https://github.com/sindresorhus/cli-spinners)
 
-**`default`** dots (if terminal supports unicode, otherwise dashes)
-
 **`example`** [options/spinner.js](https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/options/spinner.js)
+
+**`default`** dots (if terminal supports unicode, otherwise dashes)

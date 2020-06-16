@@ -6,7 +6,7 @@ const timeout = require('../../utils/timeout');
 //  TRUNCATE=0 node truncate.js
 // See the custom-scrollback.js example for another method of dealing with overflow.
 const buffer = new LineBuffer({ truncate: !process.env.TRUNCATE });
-const twisters = new Twisters(null, buffer);
+const twisters = new Twisters({ buffer });
 
 const messageCount = 100;
 

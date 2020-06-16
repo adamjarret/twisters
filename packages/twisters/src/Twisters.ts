@@ -32,22 +32,30 @@ export function defaultRender<Meta>(
 
 export class Twisters<Meta = NoMeta> {
   public options: TwistersOptions<Meta>;
-  public lineBuffer: TwistersBuffer;
   public spinnerLoop: SpinnerLoop;
+
+  /** @deprecated Please reference `options.buffer` instead */
+  public lineBuffer: TwistersBuffer;
 
   protected messages: MessageMap<Meta>;
 
+  /**
+   * Create new Twisters instance
+   * @param options
+   * @param buffer __DEPRECATED__ Please define `buffer` in `options` instead of passing it as the second constructor parameter
+   */
   constructor(
-    options: Partial<TwistersOptions<Meta>> | null = null,
-    lineBuffer = new LineBuffer()
+    options?: Partial<TwistersOptions<Meta>>,
+    buffer?: TwistersBuffer
   ) {
     this.options = {
+      buffer: options?.buffer || buffer || new LineBuffer(),
       spinner: terminalSupportsUnicode() ? dots : dashes,
       flushInactive: true,
       pinActive: false,
       ...options
     };
-    this.lineBuffer = lineBuffer;
+    this.lineBuffer = this.options.buffer;
     this.spinnerLoop = createSpinnerLoop(this.options.spinner);
     this.messages = new Map<string, Message<Meta>>();
   }
@@ -91,7 +99,7 @@ export class Twisters<Meta = NoMeta> {
    * See {@Link https://github.com/adamjarret/twisters/blob/master/packages/examples-js/bin/custom-cache.js | custom-cache.js example} to update messages using only changed attributes.
    */
   public put(name: string, messageOpt?: Partial<Message<Meta>>): Message<Meta> {
-    const { messageDefaults } = this.options;
+    const { messageDefaults, buffer } = this.options;
     const message: Message<Meta> = {
       text: name,
       active: true,
@@ -101,9 +109,9 @@ export class Twisters<Meta = NoMeta> {
       ...messageOpt
     };
 
-    if (this.lineBuffer.isDisabled) {
+    if (buffer.isDisabled) {
       if (!message.removed) {
-        this.lineBuffer.write(message.render(message, null, name), false);
+        buffer.write(message.render(message, null, name), false);
       }
     } else {
       this.messages.set(name, message);
@@ -138,40 +146,41 @@ export class Twisters<Meta = NoMeta> {
    * Otherwise this must be called manually when all messages have finished.
    */
   public flush(): void {
-    if (this.lineBuffer.isDisabled) {
+    const { buffer } = this.options;
+    if (buffer.isDisabled) {
       return;
     }
 
     this.spinnerLoop.stop();
     this.updateBuffer();
-    this.lineBuffer.cleanup && this.lineBuffer.cleanup();
+    buffer.cleanup && buffer.cleanup();
     this.messages.clear();
   }
 
   protected refresh(): void {
-    const { flushInactive } = this.options;
+    const { buffer, flushInactive } = this.options;
 
     if (flushInactive && !this.hasActiveMessage()) {
       this.flush();
     } else {
-      this.lineBuffer.init && this.lineBuffer.init();
+      buffer.init && buffer.init();
       this.spinnerLoop.start((frame) => this.updateBuffer(frame));
     }
   }
 
   protected updateBuffer(frame = ''): void {
-    const { flushInactive, pinActive } = this.options;
+    const { buffer, flushInactive, pinActive } = this.options;
     const pinned = new Map<string, Message<Meta>>();
     let foundActive = false;
     let foundRemoved = false;
 
-    this.lineBuffer.updateBegin && this.lineBuffer.updateBegin();
+    buffer.updateBegin && buffer.updateBegin();
 
     // Write/pin/remove each message
     this.forEachMessage((message, name) => {
       if (message.removed) {
         if (!foundRemoved) {
-          this.lineBuffer.teardown && this.lineBuffer.teardown();
+          buffer.teardown && buffer.teardown();
           foundRemoved = true;
         }
         this.messages.delete(name);
@@ -188,7 +197,7 @@ export class Twisters<Meta = NoMeta> {
 
       const isBuffered = foundActive || !flushInactive;
 
-      this.lineBuffer.write(message.render(message, frame, name), isBuffered);
+      buffer.write(message.render(message, frame, name), isBuffered);
 
       if (!isBuffered) {
         this.messages.delete(name);
@@ -197,10 +206,10 @@ export class Twisters<Meta = NoMeta> {
 
     // Write each pinned message (always active and buffered)
     pinned.forEach((message, name) => {
-      this.lineBuffer.write(message.render(message, frame, name), true);
+      buffer.write(message.render(message, frame, name), true);
     });
 
-    this.lineBuffer.updateEnd && this.lineBuffer.updateEnd();
+    buffer.updateEnd && buffer.updateEnd();
   }
 }
 

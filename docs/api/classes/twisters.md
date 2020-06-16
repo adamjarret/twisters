@@ -35,14 +35,16 @@
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-\+ **new Twisters**(`options`: Partial‹[TwistersOptions](../interfaces/twistersoptions.md)‹Meta›› | null, `lineBuffer`: [LineBuffer](linebuffer.md)‹›): _[Twisters](twisters.md)_
+\+ **new Twisters**(`options?`: Partial‹[TwistersOptions](../interfaces/twistersoptions.md)‹Meta››, `buffer?`: [TwistersBuffer](../interfaces/twistersbuffer.md)): _[Twisters](twisters.md)_
+
+Create new Twisters instance
 
 **Parameters:**
 
-| Name         | Type                                                                           | Default          |
-| ------------ | ------------------------------------------------------------------------------ | ---------------- |
-| `options`    | Partial‹[TwistersOptions](../interfaces/twistersoptions.md)‹Meta›› &#124; null | null             |
-| `lineBuffer` | [LineBuffer](linebuffer.md)‹›                                                  | new LineBuffer() |
+| Name       | Type                                                               | Description                                                                                                  |
+| ---------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `options?` | Partial‹[TwistersOptions](../interfaces/twistersoptions.md)‹Meta›› | -                                                                                                            |
+| `buffer?`  | [TwistersBuffer](../interfaces/twistersbuffer.md)                  | **DEPRECATED** Please define `buffer` in `options` instead of passing it as the second constructor parameter |
 
 **Returns:** _[Twisters](twisters.md)_
 
@@ -51,6 +53,8 @@
 ### <a id="linebuffer" name="linebuffer"></a> lineBuffer
 
 • **lineBuffer**: _[TwistersBuffer](../interfaces/twistersbuffer.md)_
+
+**`deprecated`** Please reference `options.buffer` instead
 
 ---
 

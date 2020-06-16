@@ -1,13 +1,20 @@
 import { Message, NoMeta } from './Message';
 import { Spinner } from './Spinner';
+import { TwistersBuffer } from './TwistersBuffer';
 
 export interface TwistersOptions<Meta = NoMeta> {
+  /**
+   * Object that implements the `TwistersBuffer` interface.
+   * Handles writing lines to a stream.
+   */
+  buffer: TwistersBuffer;
+
   /**
    * Spinner definition.
    * This option has no effect if line buffer is disabled.
    * @remarks Compatible with {@Link https://github.com/sindresorhus/cli-spinners | cli-spinners}
-   * @default dots (if terminal supports unicode, otherwise dashes)
    * @example {@link https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/options/spinner.js options/spinner.js}
+   * @default dots (if terminal supports unicode, otherwise dashes)
    */
   spinner: Spinner;
 
@@ -24,8 +31,8 @@ export interface TwistersOptions<Meta = NoMeta> {
    * Flush inactive messages ASAP.
    * This option has no effect if line buffer is disabled.
    * @remarks If this value is false, you must call twisters.flush() when all operations have completed.
-   * @default true
    * @example {@link https://github.com/adamjarret/twisters/tree/master/packages/examples-js/bin/options/flushInactive.js options/flushInactive.js}
+   * @default true
    */
   flushInactive: boolean;
 

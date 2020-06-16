@@ -9,7 +9,7 @@ const twisters = new Twisters({
   messageDefaults: {
     render: (message, frame) => {
       // If frame is null, the line buffer is disabled.
-      //  Alternately, you could check if twisters.lineBuffer.isDisabled is true.
+      //  Alternately, you could check if twisters.options.buffer.isDisabled is true.
       if (frame === null) {
         return `[${new Date().toISOString()}] ${message.text}`;
       }

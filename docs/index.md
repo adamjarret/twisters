@@ -74,7 +74,7 @@ setTimeout(() => {
 
 ## Options
 
-The [Twisters class]({{ site.url }}/twisters/api/classes/twisters.html) constructor takes 2 optional arguments. Defaults are used if arguments are omitted, which means this:
+The [Twisters class]({{ site.url }}/twisters/api/classes/twisters.html) constructor takes an optional `options` argument. Defaults are used if corresponding values are not defined, which means this:
 
 ```js
 const { Twisters } = require('twisters');
@@ -93,30 +93,28 @@ const {
   dashes
 } = require('twisters');
 
-const twistersOptions = {
+const twisters = new Twisters({
   spinner: terminalSupportsUnicode() ? dots : dashes,
   flushInactive: true,
   pinActive: false,
   messageDefaults: {
     active: true,
+    removed: false,
     render: (message, frame) => {
       const { active, text } = message;
       return active && frame ? `${frame} ${text}` : text;
     }
-  }
-};
-
-const lineBuffer = new LineBuffer({
-  EOL: '\n',
-  disable: !!process.env.CI,
-  discardStdin: true,
-  handleSigint: true,
-  stream: process.stderr,
-  truncate: true,
-  wordWrap: false
+  },
+  buffer: new LineBuffer({
+    EOL: '\n',
+    disable: !!process.env.CI,
+    discardStdin: true,
+    handleSigint: true,
+    stream: process.stderr,
+    truncate: true,
+    wordWrap: false
+  })
 });
-
-const twisters = new Twisters(twistersOptions, lineBuffer);
 ```
 
 See the documentation for details:

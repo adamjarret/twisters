@@ -1,7 +1,7 @@
 const { Twisters, LineBuffer } = require('twisters');
 
 const buffer = new LineBuffer({ handleSigint: false });
-const twisters = new Twisters(null, buffer);
+const twisters = new Twisters({ buffer });
 
 // When the handleSigint option is false, a custom handler should be defined that:
 //  a) calls buffer.cleanup()

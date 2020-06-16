@@ -6,7 +6,7 @@ const { Twisters, LineBuffer } = require('twisters');
 //  this setting is NOT RECOMMENDED. It exists only as an "escape hatch" in case
 //  muting stdin has adverse effects on the intended use case.
 const buffer = new LineBuffer({ discardStdin: false });
-const twisters = new Twisters(null, buffer);
+const twisters = new Twisters({ buffer });
 
 // Add a message
 twisters.put('a', {

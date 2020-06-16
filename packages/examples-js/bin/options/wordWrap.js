@@ -1,6 +1,6 @@
 const { Twisters, LineBuffer } = require('twisters');
 
-const twisters = new Twisters(null, new LineBuffer({ wordWrap: true }));
+const twisters = new Twisters({ buffer: new LineBuffer({ wordWrap: true }) });
 
 const text = 'Pack my box with five dozen liquor jugs. '.repeat(10);
 
